@@ -1,0 +1,22 @@
+.gutter-example .ant-row > div {
+    background: transparent;
+    border: 0;
+  }
+  .gutter-box {
+    padding: 5px 0;
+  }
+.header {
+    background-color:black;
+    padding: 1rem 0;
+    margin-bottom: 20px;
+ }
+.header__brand {
+    font-size: 2rem; 
+    font-weight: 500;
+    color: white
+    }
+.container {
+    width: 85rem;
+    padding: 0;
+    margin: 0 auto;
+     }  
