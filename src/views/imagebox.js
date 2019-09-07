@@ -1,33 +1,24 @@
 import React,{useState, useEffect} from 'react'
+import { connect } from 'react-redux';
+import { ADD_TO_FVT, REMOVE_FVT } from '../action/action'
 import { Modal,Icon } from 'antd';
 import './model.css'
 const imagebox = (props) => {
     const [visible, setVisible] = useState(false);
     const [fvt,setfvt]=useState(false)
-    const [fvtlist,setfvtlist]=useState([])
+    // const [fvtlist,setfvtlist]=useState([])
     const showModal = () => {
         setVisible(true)
     };
 
     const addtofavorite=()=>{
-        console.log("props",props)
         if(fvt){
-            console.log("truebox")
             setfvt(false)
-            var x=fvtlist.filter(item => item.id === props.item.id)
-            console.log(x)
-            setfvtlist(x);
-            console.log("list from true",fvtlist)
-
-
+            props.removefromfvt(props)
         }
         else{
-            console.log("falsebox")
             setfvt(true)
-            // setfvtlist([...fvtlist, props.item.id])
-            setfvtlist(fvtlist.concat(props.item.id))
-            console.log("list from false",fvtlist)
-
+            props.addtofvt(props)
         }
         
     }
@@ -53,4 +44,20 @@ const imagebox = (props) => {
         </div>
     );
 }
-export default imagebox
+
+const mapStateToProps = (state) => {
+    return {
+        fvtlist: state.allimages.fvt
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addtofvt: (data) => dispatch({ type: ADD_TO_FVT, data }),
+        removefromfvt :(data)=>dispatch({type:REMOVE_FVT,data})
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(imagebox)
+

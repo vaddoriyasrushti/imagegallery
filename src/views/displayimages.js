@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { FETCH_IMAGES, FETCH_ALL } from '../action/action'
 import { selectimages } from '../selectors/images'
-import { Row, Col,Icon } from 'antd';
+import { Row, Col,Icon ,Badge,Popover} from 'antd';
 import { Pagination } from 'antd';
 import './style.css'
 import Imagebox from './imagebox'
+import FavoriteImg from './favoriteimages'
 
 class displayimages extends Component {
     componentDidMount() {
@@ -18,13 +19,23 @@ class displayimages extends Component {
     }
 
     render() {
+        const fvtitem = (
+            <FavoriteImg {...this.props} />
+        );
         return (
             <div>
                 <div className="header" >
-                    <div className="container">
+                    <div className="container" style={{display:'flex'}}>
                         <div className="header__brand">
                             Gallery
                     </div>
+                        <Popover content={fvtitem} placement="bottomRight">
+                            <Badge count={this.props.fvt.length}>
+                                <Icon type="heart" style={{fontSize:25,color:'red',float:'right'}} theme="filled" />
+                            </Badge>
+                        </Popover>
+
+
                     </div>
                 </div>
                 <div className="container">
@@ -50,14 +61,13 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
         images: selectimages(state),
-        allimages: state.allimages.allimages
+        allimages: state.allimages.allimages,
+        fvt:state.allimages.fvt,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // fetchPostsIfNeeded: () => dispatch({ type: FETCH_POSTS_IF_NEEDED }),
-        // deletePost: (id) => dispatch({ type: DELETE_POST, id }),
         fetchallimages: () => dispatch({ type: FETCH_ALL }),
         fetchimages: (albumId) => dispatch({ type: FETCH_IMAGES, albumId }),
 

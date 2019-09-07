@@ -1,0 +1,41 @@
+.fvt-header{
+    background-color:#5d92f4;
+    height: 56px;
+}
+.item-description{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.img-border{
+    border:2px solid black
+}
+.set-fvtdetail{
+    padding-left:10px;
+    width:250px;
+    padding-right:10px;
+}
+.cartcontent{
+    height:auto;
+    max-height:275px;
+    overflow-y: auto;
+    scrollbar-width:10px;
+
+}
+.flexcss{
+    display:flex;
+}
+
+.emptyfvt{
+    color:brown;
+    font-size:20px;
+    text-align: center;
+    font-weight:500;
+}
+.fvthoveritem {
+    min-width: 350px ;
+}
+
+.color-red{
+    color:red;
+}
