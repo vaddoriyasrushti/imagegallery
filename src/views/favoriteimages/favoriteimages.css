@@ -38,3 +38,8 @@
 .color-red{
     color:red;
 }
+.remove{
+    color:blue;
+    text-decoration: underline
+}
+

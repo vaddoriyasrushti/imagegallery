@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { REMOVE_FVT } from '../action/action'
 
-import './style/favoriteimages.css'
+import { REMOVE_FVT } from '../../action'
+import './favoriteimages.css'
 
 
-const Fvtimages = (props) => {
+const FvtImages = (props) => {
     const removeitem=(item)=>{
         props.removefromfvt(item)
     }
@@ -24,7 +24,7 @@ const Fvtimages = (props) => {
                                     <div><img className="img-border" alt="course symbol" src={item.thumbnailUrl} height='50px' width='50px'></img></div>
                                     <div className="set-fvtdetail">
                                         <div className="item-description">{item.title}</div>
-                                        <div><a href='#' onClick={removeitem.bind(this,item)}>remove</a></div>
+                                        <div className="remove" onClick={removeitem.bind(this,item)}>remove</div>
                                     </div>
                                 </div>,
                                 <br key={`${i}_`}/>
@@ -53,4 +53,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Fvtimages);
+export default connect(mapStateToProps, mapDispatchToProps)(FvtImages);

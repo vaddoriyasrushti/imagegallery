@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
-import { ADD_TO_FVT, REMOVE_FVT } from '../action/action'
 import { Modal, Icon } from 'antd';
 
-import './style/imagebox.css'
+import { ADD_TO_FVT, REMOVE_FVT } from '../../action'
+import './imagebox.css'
 
-const imagebox = (props) => {
+const ImageBox = (props) => {
     const [visible, setVisible] = useState(false);
     const [fvt, setfvt] = useState(false)
     const showModal = () => {
@@ -43,7 +43,6 @@ const imagebox = (props) => {
                 <img  src={props.item.url} alt="color images"/>
                 {props.fvtlist.some(el => el.id === props.item.id) ? <Icon className="like-select" type="heart" style={{ fontSize: 25, color: 'red' }} theme="filled" onClick={addtofavorite} /> : <Icon className="like-select" style={{ fontSize: 25 }} type="heart" onClick={addtofavorite} />}
             </div>
-                {/* <img alt="selected color" src={props.item.url} /> */}
             </Modal>
         </div>
     );
@@ -63,5 +62,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(imagebox)
+export default connect(mapStateToProps, mapDispatchToProps)(ImageBox)
 

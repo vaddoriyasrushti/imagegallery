@@ -1,25 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { FETCH_IMAGES, FETCH_ALL } from '../action/action'
-import { selectimages, selectallimages } from '../selectors/images'
 import { Row, Col, Icon, Badge, Popover } from 'antd';
 import { Pagination } from 'antd';
 
-import './style/displayimages.css'
-import Imagebox from './imagebox'
-import FavoriteImg from './favoriteimages'
+import { FETCH_IMAGES, FETCH_ALL } from '../../action'
+import { selectimages, selectallimages } from '../../selectors/images'
+import Imagebox from '../imagebox'
+import FavoriteImg from '../favoriteimages'
+import './displayimages.css'
 
-class displayimages extends Component {
+class DisplayImages extends Component {
     state={
         current:1
     }
+    
     componentDidMount() {
         this.props.fetchallimages();
         this.props.fetchimages(1)
     }
 
     onChange = (current) => {
-        this.props.fetchimages(current)
+        const { fetchimages } = this.props
+        fetchimages(current)
         this.setState({
             current:current,
         })
@@ -87,4 +89,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(displayimages)
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayImages)
