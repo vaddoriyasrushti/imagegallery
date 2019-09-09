@@ -11,6 +11,7 @@ export default (state = INITIAL_STATE, action) => {
             
         case 'FETCH_IMAGES_FAILURE':
                 return Object.assign({}, state, { images: [] });
+
         case 'FETCH_ALL_SUCCESS':
                 return Object.assign({}, state, { allimages: action.payload });
            
@@ -18,17 +19,17 @@ export default (state = INITIAL_STATE, action) => {
                 return Object.assign({}, state, { allimages: [] });
 
         case 'ADD_SUCCESS':
-            var x=[]
-            state.fvt.push(action.payload)
+            let x=[]
+            state.fvt.push(action.payload.data)
             x=[...state.fvt]
             return Object.assign({}, state, { fvt: x});
 
         case 'REMOVE_SUCCESS':
-            var x=[]
-           x = state.fvt.filter(item => {
-            return item.id !== action.payload.id
+            let y=[]
+           y = state.fvt.filter(item => {
+            return item.id !== action.payload.data.id
             })
-            return Object.assign({}, state, { fvt: x});
+            return Object.assign({}, state, { fvt: y});
 
         default:
             return state;

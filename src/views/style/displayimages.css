@@ -2,21 +2,38 @@
     background: transparent;
     border: 0;
   }
-  .gutter-box {
-    padding: 5px 0;
+.gutter-box {
+    padding: 5px 0 16px;
   }
 .header {
     background-color:black;
     padding: 1rem 0;
     margin-bottom: 20px;
- }
+  }
+/* .header-like-icon {
+   font-size: 25px;
+   color: red;
+   float: right;
+  } */
 .header__brand {
     font-size: 2rem; 
+    width: 50%;
     font-weight: 500;
     color: white
-    }
+  }
+.like_data {
+      width: 50%;
+      text-align: end;
+  }
+.like_data span {
+      top:12px;
+  }
 .container {
     width: 85rem;
     padding: 0;
     margin: 0 auto;
-     }  
+  }  
+::selection {
+    color: #fff;
+    background: none!important;
+  }

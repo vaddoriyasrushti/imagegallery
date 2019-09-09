@@ -1,6 +1,5 @@
 import { takeLatest, put, call } from 'redux-saga/effects'
 import { fetchimages } from '../service/service'
-// import { selectimages } from '../../selectors/images'
 
 function* getimages(albumId) {
   try {

@@ -1,0 +1,23 @@
+.ant-modal-content {
+    width: 125%!important;
+  }
+.grow { 
+    transition: all .5s ease-in-out;
+  }
+.grow:hover {
+   transform: scale(1.1);
+  }
+.img_wrp {
+    display: inline-block;
+    position: relative;
+  }
+.like {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
+  .like-select {
+    position: absolute;
+    top: 85px;
+    left: 30px;
+  }

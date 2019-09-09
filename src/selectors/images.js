@@ -3,8 +3,8 @@ export const selectimages = createSelector(
     state => state.allimages.images,
     images => images
 )
-// export const selectallimages = createSelector(
-//     state => state.images.allimages,
-//     allimages => allimages
-// )
+export const selectallimages = createSelector(
+    state => state.allimages.allimages,
+    allimages => allimages
+)
 

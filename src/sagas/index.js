@@ -6,7 +6,7 @@ export default function* rootSaga() {
   yield all([
     watchfetchAllimg(),
     watchFetchImages(),
-      watchaddtofvt(),
-      watchremovefromfvt()
+    watchaddtofvt(),
+    watchremovefromfvt()
   ])
 }

@@ -1,8 +1,9 @@
 import { takeLatest, put } from 'redux-saga/effects'
 
 function* addtofvt(data) {
+    console.log(data)
     try {
-        yield put({ type: 'ADD_SUCCESS', payload: data.data.item })
+        yield put({ type: 'ADD_SUCCESS', payload: data })
     } catch (error) {
         console.error(error)
     }
@@ -12,8 +13,9 @@ export function* watchaddtofvt() {
 }
 
 function* removefromfvt(data) {
+    console.log("remove",data)
     try {
-        yield put({ type: 'REMOVE_SUCCESS', payload: data.data.item })
+        yield put({ type: 'REMOVE_SUCCESS', payload: data})
     } catch (error) {
         console.error(error)
     }

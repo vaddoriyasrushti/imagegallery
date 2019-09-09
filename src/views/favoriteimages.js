@@ -1,10 +1,14 @@
 import React from 'react';
-import { Button } from 'antd';
 import { connect } from 'react-redux'
-import './favoriteimages.css'
+import { REMOVE_FVT } from '../action/action'
+
+import './style/favoriteimages.css'
 
 
 const Fvtimages = (props) => {
+    const removeitem=(item)=>{
+        props.removefromfvt(item)
+    }
 
     return (
         <div className="fvthoveritem">
@@ -17,17 +21,17 @@ const Fvtimages = (props) => {
                         <div className="cartcontent">
                             {props.fvt.map((item, i) => [
                                 <div key={i} className="flexcss">
-                                    <div><img className="img-border" alt="course symbol" src={item.thumbnailUrl}></img></div>
+                                    <div><img className="img-border" alt="course symbol" src={item.thumbnailUrl} height='50px' width='50px'></img></div>
                                     <div className="set-fvtdetail">
                                         <div className="item-description">{item.title}</div>
+                                        <div><a href='#' onClick={removeitem.bind(this,item)}>remove</a></div>
                                     </div>
                                 </div>,
-                                <hr key={`${i}_`} />
+                                <br key={`${i}_`}/>
+                                
                             ])}
                         </div>
-                        <div className="footerfvt">
-                            <Button type="primary" >View Favorites</Button>
-                        </div>
+                       
                     </div>
             }
         </div>
@@ -42,5 +46,11 @@ const mapStateToProps = (state) => {
         }
     );
 }
+function mapDispatchToProps(dispatch) {
+    return {
+        removefromfvt: (data) => dispatch({ type: REMOVE_FVT, data })
 
-export default connect(mapStateToProps, null)(Fvtimages);
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Fvtimages);
